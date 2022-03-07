@@ -13,10 +13,16 @@ export default function ItemsList({ searchValue }) {
   }
 
   return (
-    <ul>
-      {filteredShoppingItems?.map((item) => (
-        <li key={item._id}>{item.name.en}</li>
-      ))}
-    </ul>
+    <>
+      {filteredShoppingItems?.length === 0 ? (
+        <p>Sorry, we couldn't find what you were looking for :(</p>
+      ) : (
+        <ul>
+          {filteredShoppingItems?.map((item) => (
+            <li key={item._id}>{item.name.en}</li>
+          ))}
+        </ul>
+      )}
+    </>
   );
 }
