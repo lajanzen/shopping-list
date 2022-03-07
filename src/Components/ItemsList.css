@@ -1,7 +1,16 @@
 ul {
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 2em;
+  gap: 0.5em;
+  justify-content: center;
 }
 
 li {
+  font-size: small;
   list-style: none;
+  border: rgb(175, 53, 179) solid 1px;
+  padding: 0.5em;
+  border-radius: 1em;
 }
