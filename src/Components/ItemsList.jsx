@@ -1,8 +1,8 @@
 import "./ItemsList.css";
-import bla from "../utils/fetchAPI";
+import fetchShoppingItems from "../utils/fetchAPI";
 
 export default function ItemsList() {
-  const shoppingItems = bla();
+  const shoppingItems = fetchShoppingItems();
   console.log(shoppingItems);
 
   return (

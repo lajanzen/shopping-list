@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-export default function bla() {
+export default function fetchShoppingItems() {
   const [shoppingItems, setShoppingItems] = useState([]);
 
-  async function fetchShoppingItems() {
+  async function fetchItems() {
     const response = await fetch(
       "https://fetch-me.vercel.app/api/shopping/items"
     );
@@ -12,7 +12,7 @@ export default function bla() {
   }
 
   useEffect(() => {
-    fetchShoppingItems();
+    fetchItems();
   }, []);
 
   return shoppingItems;
