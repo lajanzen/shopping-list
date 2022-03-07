@@ -1,21 +1,9 @@
 import "./ItemsList.css";
-import { useEffect, useState } from "react";
+import bla from "../utils/fetchAPI";
 
 export default function ItemsList() {
-  const [shoppingItems, setShoppingItems] = useState([]);
-
-  async function fetchShoppingItems() {
-    const response = await fetch(
-      "https://fetch-me.vercel.app/api/shopping/items"
-    );
-    const data = await response.json();
-    setShoppingItems(data.data);
-    console.log(shoppingItems);
-  }
-
-  useEffect(() => {
-    fetchShoppingItems();
-  }, []);
+  const shoppingItems = bla();
+  console.log(shoppingItems);
 
   return (
     <ul>
