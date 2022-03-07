@@ -1,14 +1,21 @@
 import "./ItemsList.css";
 import fetchShoppingItems from "../utils/fetchAPI";
 
-export default function ItemsList() {
+export default function ItemsList({ searchValue }) {
   const shoppingItems = fetchShoppingItems();
-  console.log(shoppingItems);
+
+  let filteredShoppingItems;
+
+  if (searchValue) {
+    filteredShoppingItems = shoppingItems.filter((item) =>
+      item.name.en.toLowerCase().includes(searchValue)
+    );
+  }
 
   return (
     <ul>
-      {shoppingItems.map((item) => (
-        <li>{item.name.en}</li>
+      {filteredShoppingItems?.map((item) => (
+        <li key={item._id}>{item.name.en}</li>
       ))}
     </ul>
   );
