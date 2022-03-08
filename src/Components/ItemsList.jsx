@@ -1,7 +1,7 @@
 import "./ItemsList.css";
 import fetchShoppingItems from "../utils/fetchAPI";
 
-export default function ItemsList({ searchValue }) {
+export default function ItemsList({ activeItems, searchValue, onClick }) {
   const shoppingItems = fetchShoppingItems();
 
   let filteredShoppingItems;
@@ -9,6 +9,10 @@ export default function ItemsList({ searchValue }) {
   if (searchValue) {
     filteredShoppingItems = shoppingItems.filter((item) =>
       item.name.en.toLowerCase().includes(searchValue)
+    );
+
+    filteredShoppingItems = filteredShoppingItems.filter(
+      (item) => !activeItems.includes(item.name.en)
     );
   }
 
@@ -19,7 +23,9 @@ export default function ItemsList({ searchValue }) {
       ) : (
         <ul>
           {filteredShoppingItems?.map((item) => (
-            <li key={item._id}>{item.name.en}</li>
+            <li key={item._id} onClick={onClick} value={item._id}>
+              {item.name.en}
+            </li>
           ))}
         </ul>
       )}
