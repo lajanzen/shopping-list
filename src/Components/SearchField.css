@@ -1,0 +1,9 @@
+.label {
+  display: grid;
+  justify-items: center;
+  gap: 1em;
+}
+
+input {
+  width: 20em;
+}
